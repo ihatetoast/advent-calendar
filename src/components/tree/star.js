@@ -11,12 +11,6 @@ const StarWrapper = styled.div`
   background-color: ${colors.star1};
 `;
 
-// const checkDay = (mo, day) => {
-//   const today = new Date();
-//   console.log(today.getMonth());
-//   return today.getDate() === day && today.getMonth() + 1 === mo;
-// };
-
 const Star = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isChrissy, setIsChrissy] = useState(false);
@@ -26,7 +20,7 @@ const Star = () => {
       <div className="starDoor">open</div>
     </StarWrapper>
   ) : (
-    <StarWrapper className="starClosed">is NOT open</StarWrapper>
+    <StarWrapper className="starClosed">25</StarWrapper>
   );
 };
 export default Star;
