@@ -35,7 +35,7 @@ const TreeGreen = ({ firArr, checkDay }) => {
     let subArr = [];
     firArr.map((el, i) => {
       subArr.push(
-        <Branch key={`${i}${el}`} id={`box-${i}`} day={14} checkDay={checkDay}>
+        <Branch key={`${i}${el}`} id={`box-${i}`} day={el} checkDay={checkDay}>
           {el}
         </Branch>
       );
