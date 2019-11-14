@@ -1,21 +1,25 @@
 //day 25
 
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { colors } from "../../styles/variables";
-import { checkDay } from "../../utils";
+import { colors, breakpoints } from "../../styles/variables";
 const StarWrapper = styled.div`
-  position: relative;
-  width: 3em;
-  height: 3em;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
   background-color: ${colors.star1};
+  @media (min-width: ${breakpoints.tablet}) {
+    width: 3em;
+    height: 3em;
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    width: 4em;
+    height: 4em;
+  }
 `;
 
-const Star = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isChrissy, setIsChrissy] = useState(false);
-
-  return checkDay(12, 25) ? (
+const Star = ({ day, checkDay }) => {
+  return checkDay(12, day) ? (
     <StarWrapper className="starWrapper">
       <div className="starDoor">open</div>
     </StarWrapper>

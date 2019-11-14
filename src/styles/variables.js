@@ -7,6 +7,7 @@ export const colors = {
   firMedium: "rgba(62, 136, 91, 1)",
   firDark: "rgba(47, 75, 38, 1)",
 
+  trunk: "rgba(79, 49, 48, 1)",
   snow: "rgba(204, 232, 237, 1)",
 
   star1: "rgba(160, 122, 67,1)",
@@ -14,13 +15,10 @@ export const colors = {
   accent1: "rgba(105, 62, 107, 1)",
 };
 export const breakpoints = {
-  mobileLandscape: "480px",
-  mobile: "640",
   tablet: "768px",
   tabletLarge: "980px",
-  tabletLandscape: "1024px",
-  laptop: "1224px",
-  desktop: "1824px",
+  laptop: "1024px",
+  desktop: "1224px",
 };
 
 export const fonts = {

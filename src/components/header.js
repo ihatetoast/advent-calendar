@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { colors, fonts } from "../styles/variables";
 const StyledHeader = styled.header`
   background: ${colors.red};
-  margin-bottom: 1.45rem;
+  margin-bottom: 0.5rem;
   border-bottom: 5px solid ${colors.redDark};
   .titleWrapper {
     margin: 0 auto;

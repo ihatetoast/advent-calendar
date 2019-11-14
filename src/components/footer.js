@@ -1,5 +1,5 @@
 import React from "react";
-import { colors, fonts } from "../styles/variables";
+import { colors, fonts, breakpoints } from "../styles/variables";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
@@ -10,7 +10,14 @@ const StyledFooter = styled.footer`
     margin: 0 auto;
     max-width: 900px;
     padding: 1.45rem 1.1rem;
-
+    p {
+      font-size: 0.8rem;
+      line-height: 1.2rem;
+      @media (min-width: ${breakpoints.tablet}) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
     a {
       color: ${colors.snow};
       text-decoration: none;
