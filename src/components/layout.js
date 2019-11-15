@@ -15,11 +15,8 @@ import "./layout.css";
 const ContentWrapper = styled.div`
   margin: 0 auto;
   max-width: 1100px;
-  padding: 0px 1.0875rem;
 
   margin-bottom: 1em;
-
-  border: 1px dotted gray; //REMOVE -- for placement only
 `;
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

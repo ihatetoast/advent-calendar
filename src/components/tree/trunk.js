@@ -2,17 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { colors, fonts, breakpoints } from "../../styles/variables";
 const TrunkPan = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: ${fonts.text};
   .trunkChunk {
     width: 3em;
-    height: 1em;
-    margin: 0.1rem auto;
+    height: 1.75em;
+    margin-bottom: 0.15rem;
+
     @media (min-width: ${breakpoints.tablet}) {
       width: 4em;
-      margin: 0.15rem auto;
     }
     @media (min-width: ${breakpoints.laptop}) {
       width: 4.5em;
-      margin: 0.2rem auto;
     }
   }
   #chunk-0,

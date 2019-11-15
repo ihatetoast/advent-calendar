@@ -5,6 +5,10 @@ import { fonts, colors, breakpoints } from "../../styles/variables";
 import Branch from "./branch";
 const FirBranches = styled.div`
   text-align: center;
+  .firRow {
+    display: flex;
+    justify-content: center;
+  }
   #firRow-1,
   #firRow-2 {
     .firBoxes {

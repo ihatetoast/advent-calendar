@@ -1,40 +1,63 @@
 //day 25
 
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { colors, breakpoints } from "../../styles/variables";
+import { colors, breakpoints, fonts } from "../../styles/variables";
 const StarWrapper = styled.div`
-  display: inline-block;
-  width: 2em;
-  height: 2em;
+  position: relative;
+  text-align: unset;
+  font-family: ${fonts.text};
+  font-size: 24px;
+  color: ${colors.snow};
+  width: 48px;
+  height: 48px;
   background-color: ${colors.star1};
+  margin-bottom: 0.3em;
   @media (min-width: ${breakpoints.tablet}) {
-    width: 3em;
-    height: 3em;
   }
   @media (min-width: ${breakpoints.laptop}) {
-    width: 4em;
-    height: 4em;
+  }
+
+  .starClosed {
+    z-index: 1;
+    position: absolute;
+
+    @media (min-width: ${breakpoints.tablet}) {
+    }
+    @media (min-width: ${breakpoints.laptop}) {
+    }
   }
 `;
 
 const Star = ({ day, checkDay }) => {
-  return checkDay(12, day) ? (
-    <StarWrapper className="starWrapper">
-      <div className="starDoor">open</div>
-    </StarWrapper>
-  ) : (
-    <StarWrapper className="starClosed">25</StarWrapper>
+  const isDay = checkDay(11, 15);
+  const [isOpen, setIsOpen] = useState(false);
+  const [sparkle, setSparkle] = useState("");
+  const openDoor = () => {
+    if (isDay) {
+      setIsOpen(true);
+      setSparkle("sparkle");
+    }
+  };
+
+  return (
+    <div onClick={() => openDoor()}>
+      <StarWrapper className={`starWrapper ${sparkle}`}>
+        <div className="starOpen">{day}</div>
+      </StarWrapper>
+    </div>
   );
 };
 export default Star;
-
-/**
- * 
- * const isToday = (someDate) => {
-  const today = new Date()
-  return someDate.getDate() == today.getDate() &&
-    someDate.getMonth() == today.getMonth() &&
-    someDate.getFullYear() == today.getFullYear()
-}
- */
+// {
+//   isOpen ? (
+//     <StarWrapper className="starWrapper sparkle">
+//       <div className="starOpen">open</div>
+//     </StarWrapper>
+//   ) : (
+//       <StarWrapper className="starWrapper">
+//         <div className="starClosed">
+//         </div>
+//       </StarWrapper>
+//     )
+// }
