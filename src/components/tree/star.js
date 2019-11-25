@@ -6,6 +6,9 @@ import { colors, breakpoints, fonts } from "../../styles/variables";
 const StarWrapper = styled.div`
   position: relative;
   text-align: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: ${fonts.text};
   font-size: 24px;
   color: ${colors.snow};
@@ -18,21 +21,61 @@ const StarWrapper = styled.div`
   @media (min-width: ${breakpoints.laptop}) {
   }
 
-  .starClosed {
-    z-index: 1;
+  .starDate {
+    background: blue;
+    z-index: 3;
+  }
+  .noSparkle {
+    display: none;
+  }
+  .sparkle {
     position: absolute;
+    z-index: 1;
 
-    @media (min-width: ${breakpoints.tablet}) {
+    width: 100%;
+    height: 100%;
+    .sparkleBits {
+      background-color: ${colors.star1};
+      position: absolute;
+
+      width: 50%;
+      height: 50%;
+      transform: rotate(45deg);
     }
-    @media (min-width: ${breakpoints.laptop}) {
+    #sparkleBit-1,
+    #sparkleBit-4 {
+      background: ${colors.star1};
+    }
+    #sparkleBit-2,
+    #sparkleBit-3 {
+      background: ${colors.star1};
+    }
+    #sparkleBit-1,
+    #sparkleBit-3 {
+      left: 0;
+    }
+    #sparkleBit-2,
+    #sparkleBit-4 {
+      left: 50%;
+    }
+    #sparkleBit-1,
+    #sparkleBit-2 {
+      top: 0;
+    }
+    #sparkleBit-3,
+    #sparkleBit-4 {
+      top: 50%;
+    }
+    #sparkleBit-5 {
+      background: rebeccapurple;
     }
   }
 `;
 
 const Star = ({ day, checkDay }) => {
-  const isDay = checkDay(11, 15);
+  const isDay = checkDay(11, 25);
   const [isOpen, setIsOpen] = useState(false);
-  const [sparkle, setSparkle] = useState("");
+  const [sparkle, setSparkle] = useState("noSparkle");
   const openDoor = () => {
     if (isDay) {
       setIsOpen(true);
@@ -42,22 +85,19 @@ const Star = ({ day, checkDay }) => {
 
   return (
     <div onClick={() => openDoor()}>
-      <StarWrapper className={`starWrapper ${sparkle}`}>
-        <div className="starOpen">{day}</div>
+      <StarWrapper className={`starWrapper`}>
+        <div className="starDate">{day}</div>
+        <div className={`${sparkle}`}>
+          {[1, 2, 3, 4, 5].map(el => (
+            <div
+              key={`boobenheimer-${el}`}
+              className="sparkleBits"
+              id={`sparkleBit-${el}`}
+            />
+          ))}
+        </div>
       </StarWrapper>
     </div>
   );
 };
 export default Star;
-// {
-//   isOpen ? (
-//     <StarWrapper className="starWrapper sparkle">
-//       <div className="starOpen">open</div>
-//     </StarWrapper>
-//   ) : (
-//       <StarWrapper className="starWrapper">
-//         <div className="starClosed">
-//         </div>
-//       </StarWrapper>
-//     )
-// }
