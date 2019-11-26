@@ -10,19 +10,29 @@ const StarWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-family: ${fonts.text};
-  font-size: 24px;
   color: ${colors.snow};
-  width: 48px;
-  height: 48px;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
   background-color: ${colors.star1};
   margin-bottom: 0.3em;
   @media (min-width: ${breakpoints.tablet}) {
+    font-size: 21px;
+    width: 42px;
+    height: 42px;
   }
   @media (min-width: ${breakpoints.laptop}) {
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
   }
-
+&.sparkle{
+  background: ${colors.red};
+}
   .starDate {
-    background: blue;
+    background: ${colors.star1};
+    border-radius: 50%;
+    padding: 2px;
     z-index: 3;
   }
   .noSparkle {
@@ -34,13 +44,15 @@ const StarWrapper = styled.div`
 
     width: 100%;
     height: 100%;
+    transition: all 1s  ease-in-out;
     .sparkleBits {
-      background-color: ${colors.star1};
+      
       position: absolute;
 
       width: 50%;
       height: 50%;
       transform: rotate(45deg);
+   
     }
     #sparkleBit-1,
     #sparkleBit-4 {
@@ -66,29 +78,49 @@ const StarWrapper = styled.div`
     #sparkleBit-4 {
       top: 50%;
     }
-    #sparkleBit-5 {
-      background: rebeccapurple;
+    #sparkleBit-5, #sparkleBit-7 {
+      left: 25%;
+  
+      background: ${colors.accent1};
+    }
+    #sparkleBit-6, #sparkleBit-8 {
+    top: 25%;
+
+      background: ${colors.red};;
+    }
+    #sparkleBit-5{
+      top:-10%
+    }
+    #sparkleBit-7{
+      top:60%
+    }
+    #sparkleBit-6{
+      left:60%
+    }
+    #sparkleBit-8{
+      left:-10%
     }
   }
 `;
 
 const Star = ({ day, checkDay }) => {
-  const isDay = checkDay(11, 25);
-  const [isOpen, setIsOpen] = useState(false);
+  const isDay = checkDay(11, 26);
+  // const isDay=true;
+  
   const [sparkle, setSparkle] = useState("noSparkle");
   const openDoor = () => {
     if (isDay) {
-      setIsOpen(true);
+   
       setSparkle("sparkle");
     }
   };
 
   return (
     <div onClick={() => openDoor()}>
-      <StarWrapper className={`starWrapper`}>
+      <StarWrapper className={`starWrapper ${sparkle}`}>
         <div className="starDate">{day}</div>
         <div className={`${sparkle}`}>
-          {[1, 2, 3, 4, 5].map(el => (
+          {[1, 2, 3, 4, 5, 6, 7, 8].map(el => (
             <div
               key={`boobenheimer-${el}`}
               className="sparkleBits"

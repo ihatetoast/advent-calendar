@@ -1,7 +1,14 @@
 export const checkDay = (mo, day) => {
   const today = new Date();
-  return today.getDate() === day && today.getMonth() + 1 === mo;
+  return today.getDate() <= day && today.getMonth() + 1 === mo;
 };
+export const checkDayTest = (mo, day) => {
+
+  return day <= 15 && mo === 12;
+};
+export const randoNummo =()=>{
+ return Math.floor(Math.random() * 256);
+}
 
 //FUNCTIONS TO BUILD THE TREE
 // the tree  is 24 days. 25th is the star. not dealt with in the tree.

@@ -26,8 +26,8 @@ const TrunkPan = styled.div`
     background: ${colors.red};
   }
 `;
-const Trunk = ({ trunkArr }) => {
-  console.log(trunkArr);
+const Trunk = ({ trunkArr, checkDay }) => {
+  // console.log(checkDay);
   const buildTrunk = () => {
     const trunkChunk = trunkArr.map((el, i) => {
       return (

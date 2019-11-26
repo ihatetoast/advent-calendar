@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { splitTree } from "../../utils";
-import { fonts, colors, breakpoints } from "../../styles/variables";
+import {  colors } from "../../styles/variables";
 import Branch from "./branch";
 const FirBranches = styled.div`
   text-align: center;
@@ -30,7 +29,7 @@ const FirBranches = styled.div`
   }
 `;
 const TreeGreen = ({ firArr, checkDay }) => {
-  console.log(firArr);
+
 
   const buildTree = () => {
     let rowLength = 1;
@@ -60,11 +59,10 @@ const TreeGreen = ({ firArr, checkDay }) => {
         rowCounter = 0;
         subArr = [];
       }
-      return;
+      return subArr;
     });
     return treeArr;
   };
-  // buildTree();
   return <FirBranches>{buildTree()}</FirBranches>;
 };
 export default TreeGreen;
