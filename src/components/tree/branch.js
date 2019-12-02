@@ -3,42 +3,67 @@ import styled from "styled-components";
 import { colors, fonts, breakpoints } from "../../styles/variables";
 import {randoNummo} from '../../utils';
 const FirBranch = styled.div`
-  display: flex;
-  justify-content: center;
+position:relative;
+display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-family: ${fonts.text};
- 
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 1px;
   margin: 0;
+  &:before, 
+  &:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+  }
+  @media (min-width: ${breakpoints.tablet}) {
+    width: 64px;
+    height: 64px;
+    border-radius: 3px;
+    &:before, 
+    &:after{
+      border-left-width: 32px;
+      border-right-width: 32px;
+    }
+  }
+  @media (min-width: ${breakpoints.laptop}) {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    &:before, 
+    &:after{
+      border-left-width: 36px;
+      border-right-width: 36px;
+    }
+  }
   &.ornament-wrapper{
     box-shadow:0 0 2px 2px ${colors.star2};
   }
-  @media (min-width: ${breakpoints.tablet}) {
-    width: 4em;
-    height: 4em;
-    margin: 0 0.2em;
-  }
-  @media (min-width: ${breakpoints.laptop}) {
-    width: 4.5em;
-    height: 4.5em;
-    margin: 0 0.3em;
-  }
-  .ornament-cap{
-    width:10px;
-    height:10px;
-    color:${colors.star2};
-  }
+
 
 `;
 const FirDate = styled.div`
 position:relative;
-display:flex;
-justify-content:center;
-align-items: center;
+display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 z-index: 3;
-
 padding: 2px;
 font-size: 18px;
 width: 36px;
@@ -51,11 +76,57 @@ background: ${props => props.ornament==="ornament" ? colors.red : `transparent`}
 }
 .ornament-cap{
   position:absolute;
-    width:4px;
-    height:4px;
+  width:5px;
+  height:5px;
+  top:-4px;
+  background:${colors.star2};
+  &:after{
+    content: '{';
+    position:absolute;
     top:-4px;
-    background:${colors.star2};
+    left:-0.5px;
+    font-size: 7px;
+    transform: rotate(90deg);
   }
+  &:before{
+    content:'J';
+    position:absolute;
+    top: -9px;
+    left: 1px;
+    font-size:10px;
+    transform: rotate(180deg);
+  }
+  @media (min-width: ${breakpoints.tablet}) {
+    width:6px;
+    height:6px;
+    top:-5px;
+    &:after{
+      top:-6px;
+      left:0px;
+      font-size: 10px;
+      transform: rotate(90deg);
+    }
+    &:before{
+      top: -13px;
+      font-size:14px;
+    }
+}
+  @media (min-width: ${breakpoints.laptop}) {
+    width:10px;
+    height:10px;
+    top:-9px;
+    &:after{
+      top:-8px;
+      left:2px;
+      font-size: 15px;
+      transform: rotate(90deg);
+    }
+    &:before{
+      top: -15px;
+      font-size:16px;
+    }
+  }
+}
 @media (min-width: ${breakpoints.tablet}) {
   font-size: 21px;
   width: 42px;
@@ -70,7 +141,6 @@ background: ${props => props.ornament==="ornament" ? colors.red : `transparent`}
 console.log(randoNummo());
 const Branch = ({ day, checkDay }) => {
   
-  // const isDay = true;
 const thisDay = day;
   const [ornament, setOrnament] = useState("");
   const [backgroundColor, setBackgroundColor] = useState('transparent')
@@ -79,12 +149,11 @@ const getRandoColor=()=>{
   const r = randoNummo();
   const g = randoNummo();
   const b = randoNummo();
-return `rgb(${r}, ${g}, ${b})`
+  return `rgb(${r}, ${g}, ${b})`
 }
   const openDoor = () => {
-    setBackgroundColor(getRandoColor())
     if (isDay) {
-   
+    setBackgroundColor(getRandoColor())
       setOrnament("ornament");
     }
   };

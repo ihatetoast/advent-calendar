@@ -5,9 +5,16 @@ import styled from "styled-components";
 import { colors, breakpoints, fonts } from "../../styles/variables";
 const StarWrapper = styled.div`
   position: relative;
+  z-index: 2;
   text-align: unset;
-  display: flex;
-  justify-content: center;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-family: ${fonts.text};
   color: ${colors.snow};
@@ -16,6 +23,7 @@ const StarWrapper = styled.div`
   height: 36px;
   background-color: ${colors.star1};
   margin-bottom: 0.3em;
+  border-radius: 50%;
   @media (min-width: ${breakpoints.tablet}) {
     font-size: 21px;
     width: 42px;
@@ -26,9 +34,9 @@ const StarWrapper = styled.div`
     width: 48px;
     height: 48px;
   }
-&.sparkle{
-  background: ${colors.red};
-}
+  &.sparkle{
+    background: ${colors.red};
+  }
   .starDate {
     background: ${colors.star1};
     border-radius: 50%;
@@ -41,18 +49,14 @@ const StarWrapper = styled.div`
   .sparkle {
     position: absolute;
     z-index: 1;
-
     width: 100%;
     height: 100%;
     transition: all 1s  ease-in-out;
     .sparkleBits {
-      
       position: absolute;
-
       width: 50%;
       height: 50%;
       transform: rotate(45deg);
-   
     }
     #sparkleBit-1,
     #sparkleBit-4 {
@@ -78,14 +82,14 @@ const StarWrapper = styled.div`
     #sparkleBit-4 {
       top: 50%;
     }
-    #sparkleBit-5, #sparkleBit-7 {
+    #sparkleBit-5, 
+    #sparkleBit-7 {
       left: 25%;
-  
       background: ${colors.accent1};
     }
-    #sparkleBit-6, #sparkleBit-8 {
-    top: 25%;
-
+    #sparkleBit-6, 
+    #sparkleBit-8 {
+      top: 25%;
       background: ${colors.red};;
     }
     #sparkleBit-5{
@@ -104,13 +108,11 @@ const StarWrapper = styled.div`
 `;
 
 const Star = ({ day, checkDay }) => {
-  const isDay = checkDay(11, 26);
-  // const isDay=true;
-  
+  const isDay = checkDay(12, day);
+
   const [sparkle, setSparkle] = useState("noSparkle");
   const openDoor = () => {
     if (isDay) {
-   
       setSparkle("sparkle");
     }
   };

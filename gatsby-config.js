@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Advent Calendar`,
-    description: `Advent calendar built with Gatsby JS.`,
+    title: `Countdown to Christmas`,
+    description: `countdown Christmas tree built with Gatsby JS.`,
     author: `@i_hate_toast`,
   },
   plugins: [

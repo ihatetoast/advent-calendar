@@ -3,11 +3,18 @@ import styled from "styled-components";
 import Star from "./star";
 import TreeGreen from "./treeGreen";
 import Trunk from "./trunk";
-import { splitTree, checkDay, checkDayTest } from "../../utils";
+import { splitTree, checkDay } from "../../utils";
 const StarRow = styled.div`
-  display: flex;
-  justify-content: center;
+display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  z-index: 10;
 `;
 export default function Tree() {
   const wholeTree = splitTree();
@@ -19,7 +26,7 @@ export default function Tree() {
         <Star day={25} checkDay={checkDay} />
       </StarRow>
 
-      <TreeGreen firArr={firArr} checkDay={checkDayTest} />
+      <TreeGreen firArr={firArr} checkDay={checkDay} />
       <Trunk trunkArr={trunkArr} checkDay={checkDay} />
     </div>
   );

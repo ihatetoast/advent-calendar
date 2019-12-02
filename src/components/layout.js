@@ -12,10 +12,17 @@ import styled from "styled-components";
 import Header from "./header";
 import Footer from "./footer";
 import "./layout.css";
+const StyledBody = styled.div`
+ display: -webkit-box;
+ display: -ms-flexbox;
+ display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+`
 const ContentWrapper = styled.div`
   margin: 0 auto;
   max-width: 1100px;
-
+  flex: 1;
   margin-bottom: 1em;
 `;
 const Layout = ({ children }) => {
@@ -30,11 +37,11 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
+    <StyledBody>
       <Header siteTitle={data.site.siteMetadata.title} />
       <ContentWrapper>{children}</ContentWrapper>
       <Footer />
-    </>
+    </StyledBody>
   );
 };
 

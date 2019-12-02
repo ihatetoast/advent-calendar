@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { colors, fonts } from "../styles/variables";
+import { colors, fonts, breakpoints } from "../styles/variables";
 const StyledHeader = styled.header`
   background: ${colors.red};
   margin-bottom: 0.5rem;
@@ -10,8 +10,15 @@ const StyledHeader = styled.header`
     margin: 0 auto;
     max-width: 900px;
     padding: 1.45rem 1.1rem;
+    text-align:center;
     h1 {
       font-family: ${fonts.headings};
+      font-size: 1.8em;
+      color:${colors.star2};
+      @media(min-width:${breakpoints.tablet}){
+        font-size: 2.2em;
+      }
+
     }
   }
 `;
