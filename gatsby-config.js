@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/advent-calendar",
   siteMetadata: {
     title: `Countdown to Christmas`,
     description: `countdown Christmas tree built with Gatsby JS.`,
