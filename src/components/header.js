@@ -9,16 +9,18 @@ const StyledHeader = styled.header`
   .titleWrapper {
     margin: 0 auto;
     max-width: 900px;
-    padding: 1.45rem 1.1rem;
+    padding: .75em .2em;
     text-align:center;
     h1 {
       font-family: ${fonts.headings};
-      font-size: 1.8em;
+      font-size: 1.5em;
       color:${colors.star2};
       @media(min-width:${breakpoints.tablet}){
+        font-size: 1.8em;
+      }
+      @media(min-width:${breakpoints.desktop}){
         font-size: 2.2em;
       }
-
     }
   }
 `;

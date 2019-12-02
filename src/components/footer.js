@@ -9,7 +9,7 @@ const StyledFooter = styled.footer`
   div {
     margin: 0 auto;
     max-width: 900px;
-    padding: 1rem;
+    padding: 0.2em 1em;
     p {
       font-size: 0.8rem;
       line-height: 1.2rem;

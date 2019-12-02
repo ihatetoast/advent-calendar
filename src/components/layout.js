@@ -23,7 +23,7 @@ const ContentWrapper = styled.div`
   margin: 0 auto;
   max-width: 1100px;
   flex: 1;
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
 `;
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
