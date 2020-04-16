@@ -2,9 +2,10 @@ export const checkDay = (mo, day) => {
   const today = new Date();
   return today.getDate() >= day && today.getMonth() + 1 >= mo;
 };
-export const checkDayTest = (mo, day) => {
-  return day <= 15 && mo <= 12;
-};
+// testing it without ... you know ... tests.
+// export const checkDayTest = (mo, day) => {
+//   return day <= 15 && mo === 4;
+// };
 export const randoNummo =()=>{
  return Math.floor(Math.random() * 256);
 }

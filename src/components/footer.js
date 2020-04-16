@@ -10,6 +10,7 @@ const StyledFooter = styled.footer`
     margin: 0 auto;
     max-width: 900px;
     padding: 0.2em 1em;
+    text-align: center;
     p {
       font-size: 0.8rem;
       line-height: 1.2rem;

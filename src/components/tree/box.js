@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { colors, fonts, breakpoints } from "../../styles/variables";
+import { colors, breakpoints } from "../../styles/variables";
 import {randoNummo} from '../../utils';
 const TrunkBoxDiv = styled.div`
   width: 3em;

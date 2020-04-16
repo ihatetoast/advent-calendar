@@ -25,7 +25,6 @@ export default function Tree() {
       <StarRow className="starRow">
         <Star day={25} checkDay={checkDay} />
       </StarRow>
-
       <TreeGreen firArr={firArr} checkDay={checkDay} />
       <Trunk trunkArr={trunkArr} checkDay={checkDay} />
     </div>
